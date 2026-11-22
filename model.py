@@ -196,8 +196,16 @@ def prepare_cleaned_features(X, iqr_k=1.5):
     lower, upper = compute_iqr_bounds(X_imp, k=iqr_k)
     return clip_columns(X_imp, lower, upper)
 
-# Step 20 - assemble_feature_matrix (not yet solved)
-# TODO: implement
+# Step 20 - assemble_feature_matrix
+import numpy as np
+
+def assemble_feature_matrix(X_num, ratio_num_idx, ratio_den_idx, cat_labels=None):
+    X_num = np.asarray(X_num, dtype=float)
+    ratio = make_ratio_feature(X_num[:, ratio_num_idx], X_num[:, ratio_den_idx])
+    X_out = append_column(X_num, ratio)
+    if cat_labels is not None:
+        X_out = np.hstack([X_out, one_hot_encode(cat_labels)])
+    return X_out
 
 # Step 21 - make_train_val_test (not yet solved)
 # TODO: implement
