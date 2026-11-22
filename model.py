@@ -68,8 +68,16 @@ def append_column(X, col):
     col = np.asarray(col).reshape(-1, 1)
     return np.hstack([X, col])
 
-# Step 6 - one_hot_encode (not yet solved)
-# TODO: implement
+# Step 6 - one_hot_encode
+import numpy as np
+
+def one_hot_encode(labels):
+    labels = np.asarray(labels)
+    categories, idx = np.unique(labels, return_inverse=True)
+    idx = idx.reshape(-1)
+    out = np.zeros((labels.shape[0], categories.shape[0]), dtype=float)
+    out[np.arange(labels.shape[0]), idx] = 1.0
+    return out
 
 # Step 7 - fit_standardizer (not yet solved)
 # TODO: implement
