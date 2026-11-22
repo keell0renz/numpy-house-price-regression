@@ -141,8 +141,13 @@ def ols_fit(X, y):
     theta, *_ = np.linalg.lstsq(X, y, rcond=None)
     return theta
 
-# Step 14 - ols_predict (not yet solved)
-# TODO: implement
+# Step 14 - ols_predict
+import numpy as np
+
+def ols_predict(X, theta):
+    X = np.asarray(X, dtype=float)
+    theta = np.asarray(theta, dtype=float)
+    return X @ theta
 
 # Step 15 - mean_absolute_error (not yet solved)
 # TODO: implement
