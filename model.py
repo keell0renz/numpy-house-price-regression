@@ -96,8 +96,12 @@ def apply_standardizer(X, mean, std):
     X = np.asarray(X, dtype=float)
     return (X - np.asarray(mean, dtype=float)) / np.asarray(std, dtype=float)
 
-# Step 9 - add_bias_column (not yet solved)
-# TODO: implement
+# Step 9 - add_bias_column
+import numpy as np
+
+def add_bias_column(X):
+    X = np.asarray(X, dtype=float)
+    return np.hstack([np.ones((X.shape[0], 1)), X])
 
 # Step 10 - make_shuffled_indices (not yet solved)
 # TODO: implement
