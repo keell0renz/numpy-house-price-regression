@@ -103,8 +103,12 @@ def add_bias_column(X):
     X = np.asarray(X, dtype=float)
     return np.hstack([np.ones((X.shape[0], 1)), X])
 
-# Step 10 - make_shuffled_indices (not yet solved)
-# TODO: implement
+# Step 10 - make_shuffled_indices
+import numpy as np
+
+def make_shuffled_indices(n_samples, seed):
+    rng = np.random.default_rng(seed)
+    return rng.permutation(int(n_samples))
 
 # Step 11 - partition_indices (not yet solved)
 # TODO: implement
