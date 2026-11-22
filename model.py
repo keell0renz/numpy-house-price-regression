@@ -132,8 +132,14 @@ def subset_xy(X, y, indices):
     indices = np.asarray(indices, dtype=int)
     return X[indices], y[indices]
 
-# Step 13 - ols_fit (not yet solved)
-# TODO: implement
+# Step 13 - ols_fit
+import numpy as np
+
+def ols_fit(X, y):
+    X = np.asarray(X, dtype=float)
+    y = np.asarray(y, dtype=float)
+    theta, *_ = np.linalg.lstsq(X, y, rcond=None)
+    return theta
 
 # Step 14 - ols_predict (not yet solved)
 # TODO: implement
