@@ -35,8 +35,15 @@ def impute_nan_with_mean(X):
     #    col_means has shape (F,), which broadcasts across the N rows.
     return np.where(nan_mask, col_means, X)
 
-# Step 2 - compute_iqr_bounds (not yet solved)
-# TODO: implement
+# Step 2 - compute_iqr_bounds
+import numpy as np
+
+def compute_iqr_bounds(X, k=1.5):
+    X = np.asarray(X, dtype=float)
+    q1 = np.percentile(X, 25, axis=0)
+    q3 = np.percentile(X, 75, axis=0)
+    iqr = q3 - q1
+    return q1 - k * iqr, q3 + k * iqr
 
 # Step 3 - clip_columns (not yet solved)
 # TODO: implement
