@@ -123,8 +123,14 @@ def partition_indices(indices, train_ratio, val_ratio):
     test_idx = indices[n_train + n_val:]
     return train_idx, val_idx, test_idx
 
-# Step 12 - subset_xy (not yet solved)
-# TODO: implement
+# Step 12 - subset_xy
+import numpy as np
+
+def subset_xy(X, y, indices):
+    X = np.asarray(X)
+    y = np.asarray(y)
+    indices = np.asarray(indices, dtype=int)
+    return X[indices], y[indices]
 
 # Step 13 - ols_fit (not yet solved)
 # TODO: implement
