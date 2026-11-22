@@ -79,8 +79,15 @@ def one_hot_encode(labels):
     out[np.arange(labels.shape[0]), idx] = 1.0
     return out
 
-# Step 7 - fit_standardizer (not yet solved)
-# TODO: implement
+# Step 7 - fit_standardizer
+import numpy as np
+
+def fit_standardizer(X):
+    X = np.asarray(X, dtype=float)
+    mean = X.mean(axis=0)
+    std = X.std(axis=0)
+    std = np.where(std == 0, 1.0, std)
+    return mean, std
 
 # Step 8 - apply_standardizer (not yet solved)
 # TODO: implement
