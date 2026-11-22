@@ -45,8 +45,12 @@ def compute_iqr_bounds(X, k=1.5):
     iqr = q3 - q1
     return q1 - k * iqr, q3 + k * iqr
 
-# Step 3 - clip_columns (not yet solved)
-# TODO: implement
+# Step 3 - clip_columns
+import numpy as np
+
+def clip_columns(X, lower, upper):
+    X = np.asarray(X, dtype=float)
+    return np.clip(X, np.asarray(lower, dtype=float), np.asarray(upper, dtype=float))
 
 # Step 4 - make_ratio_feature (not yet solved)
 # TODO: implement
